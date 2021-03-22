@@ -1,0 +1,29 @@
+.button {
+  padding: 5px 10px;
+  width: 130px;
+  background-color: rgba(196, 230, 233, 0.683);
+  border: 1px solid rgb(125, 19, 196);
+  border-radius: 6px;
+  box-shadow: 2px 6px 8px -2px #a09c9c;
+  border-spacing: 0;
+  outline: none;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: rgb(206, 110, 211);
+    transform: scale(1.03);
+  }
+}
+
+.buttonButton {
+  @extend .button;
+  margin-left: auto;
+  max-width: 64px;
+  padding: 2px;
+  background-image: linear-gradient(
+    120deg,
+    rgba(246, 248, 248, 0.6) 0%,
+    rgba(74, 75, 77, 0.6) 100%
+  );
+}

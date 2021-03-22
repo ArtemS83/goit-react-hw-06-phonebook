@@ -1,0 +1,16 @@
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  .card {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.title {
+  margin-bottom: 15px;
+  font-size: 30px;
+}
