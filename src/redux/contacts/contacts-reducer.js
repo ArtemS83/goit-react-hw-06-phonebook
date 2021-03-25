@@ -5,8 +5,8 @@ import {
   FILTER_CONTACTS,
 } from './contacts-types';
 
-// const initialState = JSON.parse(window.localStorage.getItem('contacts')) ?? [];
-const initialState = [];
+const initialState = JSON.parse(window.localStorage.getItem('contacts')) ?? [];
+// const initialState = [];
 const items = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_CONTACTS:

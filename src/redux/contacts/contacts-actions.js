@@ -3,10 +3,19 @@ import {
   DELETE_CONTACTS,
   FILTER_CONTACTS,
 } from './contacts-types';
+import { v4 as uuid } from 'uuid';
 
+// export const addContact = contact => ({
+//   type: ADD_CONTACTS,
+//   payload: contact,
+// });
 export const addContact = contact => ({
   type: ADD_CONTACTS,
-  payload: contact,
+  payload: {
+    id: uuid(),
+    name: contact.name,
+    number: contact.number,
+  },
 });
 
 export const deleteContact = contactId => ({

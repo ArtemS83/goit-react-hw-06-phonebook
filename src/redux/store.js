@@ -6,6 +6,6 @@ const rootReducer = combineReducers({
   contacts: contactsReducer,
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools()); // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 
 export default store;
