@@ -38,9 +38,13 @@ const ContactsInputForm = () => {
       alert(`${name} is already in contacts`);
       return;
     }
-
-    dispatch(addContact({ name, number }));
-
+    // const newContact = {
+    //   id: uuid(),
+    //   name,
+    //   number,
+    // };
+    // dispatch(addContact(newContact));
+    dispatch(addContact(name, number));
     setName('');
     setNumber('');
   };

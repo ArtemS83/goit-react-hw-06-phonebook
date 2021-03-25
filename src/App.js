@@ -11,7 +11,7 @@ import Notification from 'components/Notification';
 
 const App = () => {
   const contacts = useSelector(state => state.contacts.items);
-  console.log('App', contacts);
+  // console.log('App', contacts);
 
   return (
     <>

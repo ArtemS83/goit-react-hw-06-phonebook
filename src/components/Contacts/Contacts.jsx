@@ -18,12 +18,12 @@ const Contacts = () => {
 
   const contacts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.contacts.filter);
-  console.log('Contacts', contacts);
+  // console.log('Contacts', contacts);
   const normalizedFilter = filter.toLowerCase();
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter),
   );
-  console.log('visibleContacts', visibleContacts);
+  // console.log('visibleContacts', visibleContacts);
   return (
     <ul className={classes.list}>
       {visibleContacts.map(({ id, name, number }) => (
