@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { deleteContact } from '../../redux/contacts/contacts-actions';
 import style from './Button.module.scss';
 
 const Button = ({ title, type, id, onDelete }) => {
@@ -28,4 +30,8 @@ Button.propTypes = {
   onDelete: PropTypes.func,
 };
 
-export default Button;
+const mapDispatchToProps = dispatch => ({
+  onDelete: id => dispatch(deleteContact(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Button);

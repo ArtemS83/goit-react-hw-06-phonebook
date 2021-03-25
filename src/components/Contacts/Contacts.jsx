@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ContactItem from '../ContactItem';
 // import style from './Contacts.module.scss';
 import { createUseStyles } from 'react-jss';
@@ -9,7 +10,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Contacts = ({ contacts, onDelete }) => {
+const Contacts = ({ contacts }) => {
   const classes = useStyles();
   return (
     <ul className={classes.list}>
@@ -19,7 +20,7 @@ const Contacts = ({ contacts, onDelete }) => {
           id={id}
           name={name}
           number={number}
-          onDelete={onDelete}
+          // onDelete={onDelete}
         />
       ))}
     </ul>
@@ -34,4 +35,15 @@ Contacts.propTypes = {
   ).isRequired,
 };
 
-export default Contacts;
+const visibleContacts = (contactsArray, filterValue) => {
+  const normalizedFilter = filterValue.toLowerCase();
+  return contactsArray.filter(contact =>
+    contact.name.toLowerCase().includes(normalizedFilter),
+  );
+};
+const mapStateToProps = state => ({
+  contacts: visibleContacts(state.contacts.items, state.contacts.filter),
+  // contacts: state.contacts.items,// все контакты, если не использовать фильтрацию
+});
+
+export default connect(mapStateToProps)(Contacts);

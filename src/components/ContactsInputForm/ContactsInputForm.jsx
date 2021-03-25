@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
+import { addContact } from '../../redux/contacts/contacts-actions';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import Button from '../Button';
@@ -71,4 +73,11 @@ ContactsInputForm.propTypes = {
   contacts: PropTypes.array.isRequired,
 };
 
-export default ContactsInputForm;
+const mapStateToProps = state => ({
+  contacts: state.contacts.items,
+});
+const mapDispatchToProps = dispatch => ({
+  onSubmitForm: contact => dispatch(addContact(contact)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsInputForm);

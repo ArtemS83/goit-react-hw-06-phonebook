@@ -22,14 +22,19 @@ const useStyles = createUseStyles({
   },
 });
 
-const ContactItem = ({ name, number, id, onDelete }) => {
+const ContactItem = ({ name, number, id }) => {
+  //, onDelete
   const classes = useStyles();
   return (
     <li className={classes.item}>
       <MdPhoneAndroid />
       <span className={classes.name}>{name}:</span>
       <span className={classes.number}>{number}</span>
-      <Button title="Delete" id={id} onDelete={onDelete} />
+      <Button
+        title="Delete"
+        id={id}
+        // onDelete={onDelete}
+      />
     </li>
   );
 };
@@ -37,7 +42,7 @@ const ContactItem = ({ name, number, id, onDelete }) => {
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  // onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
