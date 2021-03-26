@@ -2,8 +2,10 @@ import { useState } from 'react';
 // import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/contacts-actions';
+import { getContacts } from '../../redux/contacts/contacts-selectors';
 // import PropTypes from 'prop-types';
 // import { v4 as uuid } from 'uuid';
+import swal from 'sweetalert';
 import Button from '../Button';
 import style from './ContactsInputForm.module.scss';
 
@@ -12,8 +14,8 @@ import style from './ContactsInputForm.module.scss';
 const ContactsInputForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(getContacts);
+  // const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
   const handleInputChange = ({ target }) => {
@@ -35,7 +37,8 @@ const ContactsInputForm = () => {
     );
 
     if (isExistingUser) {
-      alert(`${name} is already in contacts`);
+      // alert(`${name} is already in contacts`);
+      swal('Warning!', `${name} is already in contacts!`, 'warning');
       return;
     }
     // const newContact = {

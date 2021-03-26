@@ -1,5 +1,6 @@
 // import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
+import { getVisibleContacts } from '../../redux/contacts/contacts-selectors';
 import { useSelector } from 'react-redux';
 import ContactItem from '../ContactItem';
 // import style from './Contacts.module.scss';
@@ -16,14 +17,15 @@ const useStyles = createUseStyles({
 const Contacts = () => {
   const classes = useStyles();
 
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.contacts.filter);
-  // console.log('Contacts', contacts);
-  const normalizedFilter = filter.toLowerCase();
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter),
-  );
-  // console.log('visibleContacts', visibleContacts);
+  // const contacts = useSelector(state => state.contacts.items);
+  // const filter = useSelector(state => state.contacts.filter);
+
+  // const normalizedFilter = filter.toLowerCase();
+  // const visibleContacts = contacts.filter(contact =>
+  //   contact.name.toLowerCase().includes(normalizedFilter),
+  // );
+  const visibleContacts = useSelector(getVisibleContacts);
+
   return (
     <ul className={classes.list}>
       {visibleContacts.map(({ id, name, number }) => (

@@ -6,13 +6,13 @@ import ContactsInputForm from 'components/ContactsInputForm';
 import Filter from 'components/Filter';
 import Contacts from 'components/Contacts';
 import Notification from 'components/Notification';
+import { getContacts } from 'redux/contacts/contacts-selectors';
 
 //====================ContactsPage REDUX-HOOKS ===============//
 
 const App = () => {
-  const contacts = useSelector(state => state.contacts.items);
-  // console.log('App', contacts);
-
+  // const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(getContacts);
   return (
     <>
       <Section title="Phonebook">

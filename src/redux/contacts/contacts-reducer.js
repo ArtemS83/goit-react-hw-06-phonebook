@@ -12,8 +12,8 @@ import {
 //   FILTER_CONTACTS,
 // } from './contacts-types';
 
-const initialState = JSON.parse(window.localStorage.getItem('contacts')) ?? [];
-// const initialState = [];
+// const initialState = JSON.parse(window.localStorage.getItem('contacts')) ?? [];
+const initialState = [];
 const items = createReducer(initialState, {
   [addContact]: (state, action) => [...state, action.payload],
   [deleteContact]: (state, action) =>
